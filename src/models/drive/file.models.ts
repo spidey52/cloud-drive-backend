@@ -6,6 +6,7 @@ const fileSchema = new Schema(
   file_type: { type: String, required: true }, // "image", "video", "audio", "document", "archive", "other"
   file_size: { type: Number, required: true },
   folder: { type: String, ref: "Folder", default: null },
+  location: { type: String, required: true }, // "local", "cloud"
   owner: { type: String, required: true, ref: "User" },
  },
  {

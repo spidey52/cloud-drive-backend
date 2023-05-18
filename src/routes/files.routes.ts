@@ -8,7 +8,7 @@ fileRouter.get("/", getFiles);
 fileRouter.post("/", uploadFiles);
 fileRouter.delete("/:id", deleteFile);
 fileRouter.get("/:id", getFile);
-fileRouter.put("/:id", updateFile);
+fileRouter.patch("/:id", updateFile);
 fileRouter.get("/:id/download", downloadFile);
 
 export default fileRouter;

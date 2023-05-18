@@ -1,7 +1,20 @@
 import { Request, Response } from "express";
+import FileModel from "../models/drive/file.models";
+
+type SearchQuery = {
+ [key: string]: string | undefined | null | number | boolean | object | object[];
+};
 
 export const getFiles = async (req: Request, res: Response) => {
- res.send("getFiles");
+ const folder = req.query.folder;
+ const searchQuery: SearchQuery = {};
+
+ if (folder) {
+  searchQuery.folder = folder;
+ }
+
+ const files = await FileModel.find(searchQuery);
+ return res.send(files);
 };
 
 export const uploadFiles = async (req: Request, res: Response) => {

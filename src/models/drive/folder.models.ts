@@ -4,7 +4,7 @@ const FolderSchema = new Schema(
  {
   name: { type: String, required: true },
   parent: { type: String, required: false, ref: "Folder", default: null },
-  owner: { type: String, required: true, ref: "User" },
+  owner: { type: String, ref: "User", default: null },
  },
  {
   timestamps: true,

@@ -3,6 +3,7 @@ import { Schema, model } from "mongoose";
 const SharedFileSchema = new Schema(
  {
   file: { type: String, required: true, ref: "File" },
+  short_id: { type: String, required: true },
   shared_with: { type: String, required: true, ref: "User" },
   shared_by: { type: String, required: true, ref: "User" },
   permissions: { type: String, required: true, enum: ["read", "write", "delete", "share"], default: "read" },
